@@ -1,5 +1,7 @@
 # 开锁实验室 · 向费曼致敬
 
+**在线体验：** https://liyucheng1997.github.io/409_lab-lock-pick/
+
 用 Three.js 把三种常见的锁剖开来，亲手体验开锁原理。
 
 ```bash
