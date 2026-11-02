@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>开锁实验室</title>
+    <meta name="description" content="用 Three.js 拆开弹子锁、保险柜拨盘锁和数字轮密码锁，亲手体验费曼式的开锁思路。" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='5' y='14' width='22' height='15' rx='4' fill='%230071e3'/%3E%3Cpath d='M10 14V10a6 6 0 0 1 12 0v4' fill='none' stroke='%230071e3' stroke-width='3'/%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16"><rect x="4" y="10.5" width="16" height="11" rx="3" fill="currentColor" /><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2.2" /></svg>
+          </span>
+          <span class="brand-name">开锁实验室</span>
+          <span class="brand-sub">向费曼致敬</span>
+        </div>
+        <nav class="seg" id="tabs" role="tablist">
+          <button class="seg-item" data-tab="home" role="tab">首页</button>
+          <button class="seg-item" data-tab="pin" role="tab">弹子锁</button>
+          <button class="seg-item" data-tab="safe" role="tab">保险柜拨盘</button>
+          <button class="seg-item" data-tab="wheel" role="tab">数字轮密码锁</button>
+        </nav>
+        <div class="top-actions">
+          <button class="icon-btn" id="btn-sound" title="声音开关" aria-label="声音开关"></button>
+          <button class="icon-btn" id="btn-theme" title="深色 / 浅色" aria-label="切换深浅色"></button>
+        </div>
+      </header>
+
+      <main class="main" id="main">
+        <section class="viewport" id="viewport">
+          <div class="hud hud-tl">
+            <div class="pill" id="status"><span class="dot"></span><span class="pill-text">准备就绪</span></div>
+          </div>
+          <div class="hud hud-tr" id="view-tools"></div>
+          <div class="hud hud-bl" id="overlay"></div>
+          <div class="hud hud-bottom" id="hint"></div>
+          <div class="loading" id="loading"><div class="spinner"></div><span>正在加工锁具零件…</span></div>
+        </section>
+        <aside class="side" id="side">
+          <section class="card lesson">
+            <div class="card-head">
+              <h2 id="lesson-title">课程</h2>
+              <div class="seg seg-sm" id="lesson-tabs"></div>
+            </div>
+            <div class="lesson-body" id="lesson-body"></div>
+          </section>
+          <section class="card">
+            <div class="card-head"><h2>操作台</h2></div>
+            <div id="controls" class="controls"></div>
+          </section>
+          <section class="card feel-card">
+            <div class="card-head">
+              <h2>手感</h2>
+              <span class="feel-label" id="feel-label">—</span>
+            </div>
+            <canvas id="feel-canvas" height="84"></canvas>
+            <ol class="log" id="log"></ol>
+          </section>
+        </aside>
+      </main>
+
+      <div class="home" id="home"></div>
+      <div class="toast-wrap" id="toasts"></div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
